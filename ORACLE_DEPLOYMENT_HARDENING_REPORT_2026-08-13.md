@@ -1,18 +1,19 @@
-# Oracle deployment hardening report — 13 August 2026
+# Oracle deployment hardening report — LIVE package — 13 August 2026
 
-Classification: **review only — local TestNet candidate, not committed or pushed**.
+Classification: **review only — LIVE infrastructure source hardening; not
+certified or authorised for real-money execution**.
 
 ## Executive verdict
 
-The TestNet repository's Oracle infrastructure has been hardened locally without
+The LIVE repository's Oracle infrastructure has been hardened without
 editing the trading strategy, trading services, pair policy, risk logic,
 position sizing, entries, exits, indicators, thresholds, protections,
 profitability evidence or LIVE-promotion gate.
 
-The source-level release and security gates pass. Oracle A1 runtime validation,
-authenticated Binance TestNet lifecycle validation, Telegram delivery, reboot,
-failure, rollback and soak evidence remain pending because no Oracle host or
-private credentials were available for this local change.
+The source-level release and security gates must pass on the LIVE branch and in
+exact-head GitHub CI before merge. Oracle A1 runtime validation, authenticated
+Binance TestNet evidence from the separate TestNet repository, Telegram
+delivery, reboot, failure, rollback and soak evidence remain pending.
 
 Infrastructure hardening does not make the strategy profitable or suitable for
 real money. LIVE promotion remains prohibited.
@@ -21,25 +22,19 @@ real money. LIVE promotion remains prohibited.
 
 | Item | Recorded value |
 |---|---|
-| Repository | `asad13-Binana/Bitcoin-Bot-Live-Trading-on-Binance-any-Exchange-TestNet` |
-| Branch | `main` |
-| Starting HEAD | `cf9447ae6782b2c7faaa3305cd320991cd05ede3` |
+| Repository | `asad13-Binana/Bitcoin-Bot-Live-Trading-on-Binance-any-Exchange` |
+| Branch | `agent/oracle-a1-infrastructure-hardening` |
+| Starting HEAD | `e3771aeba67061ea343301235e652aa99154bff6` |
 | Starting status | clean, tracking `origin/main` |
-| Release mode | `testnet` |
+| Release mode | `live` |
 | Default execution | `simulation` |
 | LIVE certified | false |
-| Local working state | modified, uncommitted, not pushed |
-| LIVE reference HEAD | `e3771aeba67061ea343301235e652aa99154bff6` |
-| LIVE reference status | clean and untouched |
+| Publication state | pull-request candidate; exact-head CI required |
+| TestNet hardening reference | `8a7d70dcc67a4491b3571ab271c60c90793835c8` |
 
-The local candidate is in:
-
-```text
-C:\Users\asadm\Desktop\Bitcoin Codex Working\oracle-hardening-2026-08-13\bitcoin-bot-testnet
-```
-
-The separate LIVE checkout is a read-only comparison reference. It has no local
-change.
+The TestNet repository remains a separate release lineage. This change ports
+only common infrastructure controls and preserves LIVE-specific identity and
+package-mode enforcement.
 
 ## Protected strategy proof
 
@@ -64,7 +59,7 @@ freqtrade/user_data/config.json
 ```
 
 All four canonical strategy signal fingerprints continue to equal their
-expected values. The LIVE reference has the same full strategy hash.
+expected values. The current TestNet main has the same full strategy hash.
 
 Result: **protected strategy and trading application code are byte-for-byte
 unchanged**.
@@ -77,13 +72,13 @@ unchanged**.
 | High | A persistent self-hosted runner increased the impact of arbitrary workflow execution on the trading VM. | Runner registration and runner sudo policy are opt-in with `ENABLE_GITHUB_RUNNER=false` by default. The isolated account remains only as a non-privileged artifact-staging identity. |
 | Medium | Docker used the older one-line `.list` apt-repository format and did not handle all currently documented conflicts. | Implemented Docker's current official deb822 `.sources` format, refreshed the official ASCII key, removed the obsolete list and handles Docker/Compose/Buildx/Podman/containerd/runc conflicts only before first CE installation. |
 | Medium | Re-running setup could blindly upgrade Docker. | Existing Docker CE is retained unless an exact reviewed `DOCKER_VERSION` is supplied. Initial installation uses the official package family. |
-| Medium | Simulation/TestNet monitoring defaulted to port 8090, colliding with the separate Binana bot. | Changed every Bitcoin monitoring default and URL to loopback `127.0.0.1:8091`; added numeric, loopback and occupied-port fail-closed validation. |
+| Medium | Simulation/LIVE monitoring defaulted to port 8090, colliding with the separate Binana bot. | Changed every Bitcoin monitoring default and URL to loopback `127.0.0.1:8091`; added numeric, loopback and occupied-port fail-closed validation. |
 | Medium | Compose had memory limits but no explicit CPU or PID ceilings. | Added CPU and PID limits to all four services; aggregate CPU ceilings total 0.95 OCPU, leaving capacity for Ubuntu, Docker and administration. Existing bounded Docker logs, capabilities, health checks and non-root controls were retained. |
 | Medium | There was no root fail-safe for disk or inode exhaustion. | Added a one-minute, root-only systemd resource guard with 85% warning and 95% critical defaults. At critical pressure it stops only the four label-verified Bitcoin project services and writes a redacted status record. |
 | High | The inherited monitoring snapshot helper mounted the Docker Unix socket read-only. A read-only socket mount still permits Docker API commands and therefore remained root-equivalent runtime access. | Deleted the privileged monitoring helper. The root-owned deployment safety guard now produces the narrow, sanitized container-status file; the `botmon` verification unit only reads that file and has neither the Docker socket nor Docker CLI. |
-| Medium | Host diagnostics did not cover the complete target or real HTTPS latency phases. | Added a redacted Oracle diagnostic covering host, Docker, Compose, Chrony, services, health, limits, ports, IMDS, providers and release identity, plus at least ten Binance Testnet HTTPS samples with DNS/connect/TLS/first-byte/total min, median, p95 and max. |
+| Medium | Host diagnostics did not cover the complete target or real HTTPS latency phases. | Added a redacted Oracle diagnostic covering host, Docker, Compose, Chrony, services, health, limits, ports, IMDS, providers and release identity, plus at least ten public Binance production HTTPS samples with DNS/connect/TLS/first-byte/total min, median, p95 and max. It uses no credential or order endpoint. |
 | Medium | Backup/restore evidence was incomplete. | Added root-only online SQLite backup, `PRAGMA quick_check`, config/audit/runtime snapshots, symlink rejection, checksums and non-destructive archive/restore validation. Off-host copies must be encrypted. |
-| Medium | Package identity was implicit. | Added configurable `BOT_PRODUCT=BITCOIN-BOT`, `BOT_ENVIRONMENT=TESTNET` and `BOT_INSTANCE_ID=BITCOIN-TN-TYO-01`, propagated them into every service, and rejects TestNet identity or production execution-endpoint mismatch. |
+| Medium | Package identity was implicit. | Added configurable `BOT_PRODUCT=BITCOIN-BOT`, `BOT_ENVIRONMENT=LIVE` and `BOT_INSTANCE_ID=BITCOIN-LV-TYO-01`, propagated them into every service, and rejects LIVE identity or production execution-endpoint mismatch. |
 | Low | Host target allowed multiple Ubuntu releases and architectures by default. | Default target is now Ubuntu 24.04 ARM64 for Oracle A1, with explicit reviewed override variables retained for portability. |
 | Low | Security update and reboot behaviour were not explicit. | Ubuntu automatic security updates are enabled while automatic reboot is explicitly disabled. Docker's third-party repository is not added to unattended upgrades. |
 | Low | Chrony presence was checked without an explicit wait/offset acceptance gate. | Added `chronyc waitsync` with a default maximum 0.5-second offset before deployment. Binance `recvWindow` remains 5,000 ms; time quality is not hidden by a large window. |
@@ -146,16 +141,16 @@ the host.
 
 ## Identity and endpoint enforcement
 
-The local TestNet package requires:
+The LIVE package requires:
 
 ```text
 BOT_PRODUCT=BITCOIN-BOT
-BOT_ENVIRONMENT=TESTNET
-BOT_INSTANCE_ID=BITCOIN-TN-...
+BOT_ENVIRONMENT=LIVE
+BOT_INSTANCE_ID=BITCOIN-LV-...
 ```
 
-The TestNet installer accepts only simulation or TestNet execution and rejects
-a non-Testnet Binance execution endpoint. The optional self-hosted workflow
+The LIVE installer accepts only simulation or LIVE execution and rejects a
+non-production Binance execution endpoint. The optional self-hosted workflow
 remains simulation-only, requires empty Binance credentials, keeps entries off
 and accepts only a one-use independently approved artifact digest.
 
@@ -239,10 +234,10 @@ approval consumption, release/config identity, atomic current-link switch,
 deployment locks, bounded release retention, exact stack identity and
 transactional rollback.
 
-The local candidate is not an immutable release yet. After owner review it must
-be committed and pushed; GitHub CI must write the final `.git-commit`, regenerate
-the manifest and build the exact-head artifact. No local working-tree artifact
-should be installed on Oracle.
+The pull-request branch is not an immutable release. After review and green CI,
+the merged `main` commit must receive its own successful GitHub run; CI must
+write the final `.git-commit`, regenerate the manifest and build the exact-head
+artifact. No local working-tree artifact should be installed on Oracle.
 
 ## Tests and evidence
 
@@ -274,7 +269,7 @@ The sole release-gate skip is Windows symlink creation. The warning is the
 existing third-party Starlette/httpx test-client deprecation and does not affect
 the bot runtime.
 
-## Current public Binance compatibility check
+## Current public Binance compatibility boundary
 
 A credential-free, read-only BTCUSDT check on 13 August 2026 returned:
 
@@ -287,19 +282,19 @@ A credential-free, read-only BTCUSDT check on 13 August 2026 returned:
   capabilities;
 - current execution price-range rules and a valid reference price.
 
-No API key was used and no order was sent. Production public compatibility is
-not authenticated TestNet validation.
+No API key was used and no order was sent. Public compatibility does not prove
+authenticated TestNet operation and never authorises LIVE money.
 
 ## Failure and reboot acceptance plan
 
 The deployment guide requires retained evidence for Docker restart, each
-container crash, VM reboot, network/DNS loss, Binance Testnet failure, Telegram
+container crash, VM reboot, network/DNS loss, public Binance failure, Telegram
 failure, OOM, warning/critical disk pressure, corrupt/incomplete releases,
 backup verification, restore validation and three rollback cycles.
 
-After every drill, the operator must prove that simulation/TestNet did not
-transition to LIVE, entries did not silently resume and the protected strategy
-hash did not change.
+After every pre-promotion drill, the operator must prove that execution remained
+simulation, `LIVE_TRADING_ENABLED=false`, entries did not silently resume and
+the protected strategy hash did not change.
 
 ## Changed files
 
@@ -311,6 +306,7 @@ PACKAGE_NOTES.txt
 README.md
 RELEASE_MANIFEST.json
 RELEASE_SHA256.txt
+VALIDATION_STATUS.json
 deploy/bitcoin-bot-deploy
 deploy/install_artifact.sh
 deploy/install_monitoring.sh
@@ -358,14 +354,16 @@ tests/test_oracle_hardening_2026_08_13.py
 
 1. No OCI instance was provisioned; OS, Docker, systemd, firewall, IMDS, swap,
    Chrony, resource-guard, backup and reboot behaviour are not host-validated.
-2. No authenticated Binance TestNet order lifecycle was run.
+2. No authenticated Binance TestNet evidence was imported from the separate
+   TestNet acceptance process, and no LIVE order is authorised.
 3. No real Telegram delivery was run.
 4. No Oracle latency sample was collected; only the diagnostic implementation
    was locally syntax/static tested.
 5. No disk/OOM/network/DNS/corrupt-release/rollback fault injection was executed
    on Linux.
 6. No 14-day Oracle soak exists.
-7. The local candidate is uncommitted and has no exact-head CI artifact.
+7. The pull-request and eventual merged `main` heads require their own green CI
+   runs and exact-head artifacts.
 8. The root-only local backup requires owner-managed encryption and off-host
    retention; automatic cloud backup was intentionally not authorised.
 9. OCI A1 capacity and Tokyo-region availability are external and not guaranteed.
@@ -390,7 +388,7 @@ tests/test_oracle_hardening_2026_08_13.py
 INFRASTRUCTURE HARDENING: PASS (source/local)
 LOCAL TESTS: PASS
 PROTECTED STRATEGY UNCHANGED: PASS
-TESTNET/SIMULATION ENFORCEMENT: PASS (source/local)
+LIVE IDENTITY/SIMULATION ENFORCEMENT: PASS (source/local)
 ORACLE HOST VALIDATION: PENDING
 BINANCE TESTNET END-TO-END VALIDATION: PENDING
 ORACLE SOAK: PENDING

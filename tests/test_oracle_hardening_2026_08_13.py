@@ -57,15 +57,15 @@ def test_deployment_user_and_runner_have_no_docker_group_privilege():
     assert "GitHub self-hosted runner disabled by default" in setup
 
 
-def test_testnet_identity_and_endpoint_fail_closed():
+def test_live_identity_and_endpoint_fail_closed():
     env = text(".env.example")
     installer = text("deploy/install_artifact.sh")
     wrapper = text("deploy/bitcoin-bot-deploy")
     assert "BOT_PRODUCT=BITCOIN-BOT" in env
-    assert "BOT_ENVIRONMENT=TESTNET" in env
-    assert "BOT_INSTANCE_ID=BITCOIN-TN-TYO-01" in env
-    assert "this TestNet package requires BOT_ENVIRONMENT=TESTNET" in installer
-    assert "testnet package rejects a non-Testnet Binance execution endpoint" in installer
+    assert "BOT_ENVIRONMENT=LIVE" in env
+    assert "BOT_INSTANCE_ID=BITCOIN-LV-TYO-01" in env
+    assert "this LIVE package requires BOT_ENVIRONMENT=LIVE" in installer
+    assert "live package rejects a non-production Binance execution endpoint" in installer
     assert "self-hosted wrapper permits EXECUTION_MODE=simulation only" in wrapper
     assert "BINANCE_API_KEY" in wrapper and "requires empty Binance credentials" in wrapper
 
@@ -147,7 +147,7 @@ def test_backup_uses_sqlite_online_backup_and_root_only_validation():
 def test_oracle_diagnostic_is_redacted_and_uses_real_https_timings():
     diagnostic = text("deploy/oracle_validate.sh")
     assert "TIMING_SAMPLES=${TIMING_SAMPLES:-10}" in diagnostic
-    assert "https://testnet.binance.vision/api/v3/time" in diagnostic
+    assert "https://api.binance.com/api/v3/time" in diagnostic
     for metric in (
         "time_namelookup", "time_connect", "time_appconnect",
         "time_starttransfer", "time_total",

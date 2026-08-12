@@ -1,10 +1,13 @@
-# Bitcoin Bot TestNet — Oracle A1 deployment guide
+# Bitcoin Bot LIVE package — Oracle A1 infrastructure deployment guide
 
-Status: **deployment procedure for owner review; Oracle host validation pending**.
+Status: **simulation-only infrastructure procedure for owner review; Oracle
+host validation and LIVE promotion remain pending**.
 
-This guide deploys the TestNet package to Oracle Cloud Infrastructure without
-changing the protected trading strategy. Infrastructure success is not
-profitability evidence and never authorises LIVE trading.
+This guide stages the LIVE package on Oracle Cloud Infrastructure without
+changing the protected trading strategy. Initial and pre-promotion operation is
+simulation only, with empty Binance credentials and LIVE trading disabled.
+Infrastructure success is not profitability evidence and never authorises
+real-money trading.
 
 ## 1. Supported target
 
@@ -19,10 +22,10 @@ Recommended identity and capacity:
 | OCPU | 1 |
 | RAM | 6 GB |
 | Boot volume | approximately 50 GB |
-| Host name | `bitcoin-testnet-tokyo` |
+| Host name | `bitcoin-live-tokyo` |
 | Product | `BITCOIN-BOT` |
-| Environment | `TESTNET` |
-| Instance ID | `BITCOIN-TN-TYO-01` |
+| Environment | `LIVE` |
+| Instance ID | `BITCOIN-LV-TYO-01` |
 
 The host installer rejects non-Ubuntu hosts, Ubuntu releases other than 24.04
 by default, non-ARM64 hosts by default, and machines below 1,400 MiB of physical
@@ -91,9 +94,10 @@ working tree or manually fabricated checksums. The workflow writes the exact
 commit to `.git-commit`, regenerates the manifest and creates an immutable
 tarball plus adjacent SHA-256.
 
-Before the local 13 August candidate is published, review its complete diff,
-commit it, push it, and let CI regenerate the final artifact. Until then it is
-not an Oracle release artifact.
+Merge only after the complete pull-request diff and green exact-head CI are
+reviewed. Then require a successful workflow on the merged `main` commit and
+use only that run's immutable artifact. A branch working tree or locally built
+archive is not an Oracle release artifact.
 
 Download the artifact for that exact commit to the administrator workstation.
 Verify the adjacent checksum locally and independently record the complete
@@ -160,8 +164,8 @@ non-secret identity:
 
 ```text
 BOT_PRODUCT=BITCOIN-BOT
-BOT_ENVIRONMENT=TESTNET
-BOT_INSTANCE_ID=BITCOIN-TN-TYO-01
+BOT_ENVIRONMENT=LIVE
+BOT_INSTANCE_ID=BITCOIN-LV-TYO-01
 ```
 
 First deployment:
@@ -225,7 +229,8 @@ sudo /usr/local/sbin/bitcoin-bot-oracle-validate \
 It reports identity, OS, architecture, kernel, CPU, RAM, swap, disk, Docker,
 Compose, Chrony, services, containers, health, resource limits, loopback ports,
 release identity, execution mode and reachability. It performs at least ten
-HTTPS calls to Binance Testnet `/api/v3/time` and calculates DNS, connect, TLS,
+HTTPS calls to the public Binance production `/api/v3/time` endpoint and
+calculates DNS, connect, TLS,
 first-byte and total min/median/p95/max. It does not use ICMP as API proof and
 does not print credentials.
 
@@ -257,7 +262,7 @@ checksum inventory. It can contain private configuration and must remain mode
 Restore is deliberately not automatic. During a maintenance window: stop the
 stack, verify the backup, preserve the failed state, restore only the selected
 database/config generation, rerun SQLite `quick_check`, then start in simulation
-and reconcile before TestNet resumes.
+and reconcile before simulation resumes.
 
 ## 10. Failure and reboot acceptance
 
@@ -267,28 +272,30 @@ Retain redacted evidence for:
 2. each container crash and health recovery;
 3. VM reboot;
 4. network and DNS loss;
-5. Binance Testnet and Telegram failure;
+5. public Binance and Telegram failure;
 6. memory pressure/OOM;
 7. disk-warning and disk-critical resource-guard behaviour;
 8. corrupt and incomplete artifact rejection;
 9. backup validation;
 10. three verified rollback cycles.
 
-After every test prove that `RELEASE_MODE=testnet`, execution remains
-`simulation` or `testnet`, `LIVE_TRADING_ENABLED=false`, `AUTO_CONFIRM=false`,
-and the protected strategy hash is unchanged.
+After every pre-promotion test prove that `RELEASE_MODE=live`, execution remains
+`simulation`, `LIVE_TRADING_ENABLED=false`, `AUTO_CONFIRM=false`, Binance
+credentials remain empty, and the protected strategy hash is unchanged.
 
-## 11. Authenticated TestNet is a separate acceptance gate
+## 11. LIVE promotion is a separate prohibited gate
 
-Only after simulation validation, create a dedicated Binance Spot Test Network
-key. Use TestNet endpoints, Spot-only permission and no withdrawal capability.
-Do not enlarge `recvWindow` to hide poor time synchronisation; Binance recommends
-5,000 ms or less.
+Do not place a Binance production key in this host during infrastructure
+validation. Authenticated order creation, cancellation, user-data-stream
+handling, unknown-order reconciliation, Telegram confirmation, reboot recovery
+and soak must first pass in the separate TestNet repository on its actual
+Oracle host. The failed profitability gate must also be resolved with retained
+raw evidence and the owner must approve a separate LIVE promotion review.
 
-Authenticated TestNet order creation, cancellation, user-data-stream handling,
-unknown-order reconciliation, Telegram confirmations, reboot recovery and soak
-remain **pending until performed on the actual Oracle host**. None of these
-results authorises LIVE money.
+Only after all promotion gates are independently closed may a dedicated
+production Spot key be considered. It must have withdrawals disabled, the
+narrowest supported permissions and IP restriction. Do not enlarge `recvWindow`
+to hide poor time synchronisation; keep the existing 5,000 ms policy or less.
 
 ## 12. Prohibited actions
 
