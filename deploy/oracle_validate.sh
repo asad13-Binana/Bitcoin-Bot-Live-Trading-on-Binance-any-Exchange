@@ -6,7 +6,7 @@ APP_ROOT=/opt/bitcoin-bot
 CURRENT=$APP_ROOT/current
 ENV_FILE=/etc/bitcoin-bot/.env
 PERSIST=/var/lib/bitcoin-bot/shared
-TIMING_TARGET=https://testnet.binance.vision/api/v3/time
+TIMING_TARGET=https://api.binance.com/api/v3/time
 TIMING_SAMPLES=${TIMING_SAMPLES:-10}
 COMPOSE_PROJECT_NAME=bitcoin-bot
 
@@ -36,8 +36,8 @@ from pathlib import Path
 path = Path(sys.argv[1])
 allowed = {
     "BOT_PRODUCT": "BITCOIN-BOT",
-    "BOT_ENVIRONMENT": "TESTNET",
-    "BOT_INSTANCE_ID": "BITCOIN-TN-TYO-01",
+    "BOT_ENVIRONMENT": "LIVE",
+    "BOT_INSTANCE_ID": "BITCOIN-LV-TYO-01",
     "EXECUTION_MODE": "simulation",
     "MONITOR_BIND_HOST": "127.0.0.1",
     "MONITOR_PORT": "8091",
@@ -100,8 +100,8 @@ command_value UTC-date date -u +%Y-%m-%dT%H:%M:%SZ
 section 'Services'
 for unit in \
   docker.service chrony.service unattended-upgrades.service \
-  bitcoin-bot-resource-guard.timer bitcoin-bot-monitor-testnet.service \
-  bitcoin-bot-monitor-snapshot.timer bitcoin-bot-monitor-report-testnet.timer; do
+  bitcoin-bot-resource-guard.timer bitcoin-bot-monitor-live.service \
+  bitcoin-bot-monitor-snapshot.timer bitcoin-bot-monitor-report-live.timer; do
   state=$(systemctl is-active "$unit" 2>/dev/null || true)
   line "$unit" "${state:-not-installed}"
 done
@@ -148,12 +148,12 @@ line IMDSv2 "${imds_v2:-unreachable}"
 line IMDSv1 "${imds_v1:-unreachable} (404 expected when v2-only is enforced)"
 
 section 'Public HTTPS reachability (no credentials)'
-http_status Binance-Testnet-time "$TIMING_TARGET"
+http_status Binance-production-time "$TIMING_TARGET"
 http_status Telegram-API https://api.telegram.org
 http_status CoinGecko https://api.coingecko.com/api/v3/ping
 http_status CoinMarketCap https://pro-api.coinmarketcap.com/v1/key/info
 
-section "Binance Testnet HTTPS timings ($TIMING_SAMPLES samples, seconds)"
+section "Binance production HTTPS timings ($TIMING_SAMPLES samples, seconds)"
 [[ "$TIMING_SAMPLES" =~ ^[0-9]+$ && "$TIMING_SAMPLES" -ge 10 && "$TIMING_SAMPLES" -le 100 ]] || {
   echo 'TIMING_SAMPLES must be an integer from 10 through 100' >&2
   exit 1

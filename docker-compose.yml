@@ -28,8 +28,8 @@ services:
     command: python -m services.moneyflow.service
     environment:
       BOT_PRODUCT: ${BOT_PRODUCT:-BITCOIN-BOT}
-      BOT_ENVIRONMENT: ${BOT_ENVIRONMENT:-TESTNET}
-      BOT_INSTANCE_ID: ${BOT_INSTANCE_ID:-BITCOIN-TN-TYO-01}
+      BOT_ENVIRONMENT: ${BOT_ENVIRONMENT:-LIVE}
+      BOT_INSTANCE_ID: ${BOT_INSTANCE_ID:-BITCOIN-LV-TYO-01}
       DEPLOYED_RELEASE_HASH: ${DEPLOYED_RELEASE_HASH:?installer must bind the release hash}
       DEPLOYED_CONFIG_SHA256: ${DEPLOYED_CONFIG_SHA256:?installer must bind the config hash}
       SHARED_ROOT: /app/shared
@@ -88,8 +88,8 @@ services:
         condition: service_healthy
     environment:
       BOT_PRODUCT: ${BOT_PRODUCT:-BITCOIN-BOT}
-      BOT_ENVIRONMENT: ${BOT_ENVIRONMENT:-TESTNET}
-      BOT_INSTANCE_ID: ${BOT_INSTANCE_ID:-BITCOIN-TN-TYO-01}
+      BOT_ENVIRONMENT: ${BOT_ENVIRONMENT:-LIVE}
+      BOT_INSTANCE_ID: ${BOT_INSTANCE_ID:-BITCOIN-LV-TYO-01}
       DEPLOYED_RELEASE_HASH: ${DEPLOYED_RELEASE_HASH:?installer must bind the release hash}
       DEPLOYED_CONFIG_SHA256: ${DEPLOYED_CONFIG_SHA256:?installer must bind the config hash}
       FREQTRADE__API_SERVER__ENABLED: "true"
@@ -147,8 +147,8 @@ services:
         condition: service_healthy
     environment:
       BOT_PRODUCT: ${BOT_PRODUCT:-BITCOIN-BOT}
-      BOT_ENVIRONMENT: ${BOT_ENVIRONMENT:-TESTNET}
-      BOT_INSTANCE_ID: ${BOT_INSTANCE_ID:-BITCOIN-TN-TYO-01}
+      BOT_ENVIRONMENT: ${BOT_ENVIRONMENT:-LIVE}
+      BOT_INSTANCE_ID: ${BOT_INSTANCE_ID:-BITCOIN-LV-TYO-01}
       DEPLOYED_RELEASE_HASH: ${DEPLOYED_RELEASE_HASH:?installer must bind the release hash}
       DEPLOYED_CONFIG_SHA256: ${DEPLOYED_CONFIG_SHA256:?installer must bind the config hash}
       EXECUTION_MODE: ${EXECUTION_MODE:-simulation}
@@ -251,8 +251,8 @@ services:
         condition: service_healthy
     environment:
       BOT_PRODUCT: ${BOT_PRODUCT:-BITCOIN-BOT}
-      BOT_ENVIRONMENT: ${BOT_ENVIRONMENT:-TESTNET}
-      BOT_INSTANCE_ID: ${BOT_INSTANCE_ID:-BITCOIN-TN-TYO-01}
+      BOT_ENVIRONMENT: ${BOT_ENVIRONMENT:-LIVE}
+      BOT_INSTANCE_ID: ${BOT_INSTANCE_ID:-BITCOIN-LV-TYO-01}
       DEPLOYED_RELEASE_HASH: ${DEPLOYED_RELEASE_HASH:?installer must bind the release hash}
       DEPLOYED_CONFIG_SHA256: ${DEPLOYED_CONFIG_SHA256:?installer must bind the config hash}
       TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN:?set TELEGRAM_BOT_TOKEN}

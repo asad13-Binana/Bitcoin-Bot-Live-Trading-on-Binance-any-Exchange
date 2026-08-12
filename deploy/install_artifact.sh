@@ -329,13 +329,13 @@ case "$EXECUTION_MODE" in
   *) fail 'EXECUTION_MODE must be simulation, testnet, or live' ;;
 esac
 BOT_PRODUCT=${BOT_PRODUCT:-BITCOIN-BOT}
-BOT_ENVIRONMENT=${BOT_ENVIRONMENT:-TESTNET}
-BOT_INSTANCE_ID=${BOT_INSTANCE_ID:-BITCOIN-TN-TYO-01}
+BOT_ENVIRONMENT=${BOT_ENVIRONMENT:-LIVE}
+BOT_INSTANCE_ID=${BOT_INSTANCE_ID:-BITCOIN-LV-TYO-01}
 [[ "$BOT_PRODUCT" == BITCOIN-BOT ]] || fail 'BOT_PRODUCT must be BITCOIN-BOT'
-[[ "$BOT_ENVIRONMENT" == TESTNET ]] || \
-  fail 'this TestNet package requires BOT_ENVIRONMENT=TESTNET'
-[[ "$BOT_INSTANCE_ID" =~ ^BITCOIN-TN-[A-Z0-9][A-Z0-9-]{2,47}$ ]] || \
-  fail 'BOT_INSTANCE_ID must use the BITCOIN-TN- namespace'
+[[ "$BOT_ENVIRONMENT" == LIVE ]] || \
+  fail 'this LIVE package requires BOT_ENVIRONMENT=LIVE'
+[[ "$BOT_INSTANCE_ID" =~ ^BITCOIN-LV-[A-Z0-9][A-Z0-9-]{2,47}$ ]] || \
+  fail 'BOT_INSTANCE_ID must use the BITCOIN-LV- namespace'
 if [[ -n "${EXPECTED_EXECUTION_MODE:-}" && "$EXECUTION_MODE" != "$EXPECTED_EXECUTION_MODE" ]]; then
   fail "host EXECUTION_MODE=$EXECUTION_MODE does not match requested $EXPECTED_EXECUTION_MODE"
 fi
@@ -574,11 +574,11 @@ case "$PACKAGE_MODE" in
              || fail 'testnet package permits only simulation or testnet execution' ;;
   *) fail 'artifact RELEASE_MODE must be live or testnet' ;;
 esac
-if [[ "$PACKAGE_MODE" == testnet ]]; then
-  [[ "$BOT_ENVIRONMENT" == TESTNET ]] || fail 'testnet artifact identity mismatch'
+if [[ "$PACKAGE_MODE" == live ]]; then
+  [[ "$BOT_ENVIRONMENT" == LIVE ]] || fail 'live artifact identity mismatch'
   case "${BINANCE_SPOT_EXECUTION_PUBLIC_BASE:-}" in
-    ''|https://testnet.binance.vision) ;;
-    *) fail 'testnet package rejects a non-Testnet Binance execution endpoint' ;;
+    ''|https://api.binance.com) ;;
+    *) fail 'live package rejects a non-production Binance execution endpoint' ;;
   esac
 fi
 NEW_TAG="bitcoin-${RELEASE_HASH:0:16}"
