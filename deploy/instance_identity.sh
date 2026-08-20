@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+# Immutable, non-secret host identity for this repository package.
+# Keep this file release-controlled; real credentials remain in PRIVATE_ROOT/.env.
+readonly INSTANCE_SLUG=bitcoin-live
+readonly INSTANCE_MODE=live
+readonly COMPOSE_PROJECT_NAME=bitcoin-live
+readonly SERVICE_IMAGE=bitcoin-live-services
+readonly APP_ROOT=/opt/bitcoin-live
+readonly RELEASES=/opt/bitcoin-live/releases
+readonly CURRENT=/opt/bitcoin-live/current
+readonly PRIVATE_ROOT=/etc/bitcoin-live
+readonly BOT_ENV_FILE=/etc/bitcoin-live/.env
+readonly APPROVED_DIGEST=/etc/bitcoin-live/approved-artifact.sha256
+readonly CONSUMED_DIGEST=/etc/bitcoin-live/last-consumed-artifact.sha256
+readonly PERSIST_PARENT=/var/lib/bitcoin-live
+readonly PERSIST=/var/lib/bitcoin-live/shared
+readonly CONFIG_ROOT=/var/lib/bitcoin-live/config-snapshots
+readonly ROOT_INCOMING=/var/lib/bitcoin-live/root-incoming
+readonly MONITOR_LOG_DIR=/var/log/bitcoin-live/monitor
+readonly MONITOR_LOG_PARENT=/var/log/bitcoin-live
+readonly DEPLOY_INBOX=/var/lib/bitcoin-live/incoming
+readonly ROOT_LIBEXEC=/usr/local/libexec/bitcoin-live
+readonly ROOT_WRAPPER=/usr/local/sbin/bitcoin-live-deploy
+readonly ORACLE_VALIDATE_BIN=/usr/local/sbin/bitcoin-live-oracle-validate
+readonly BACKUP_ROOT=/var/backups/bitcoin-live
+readonly INSTALL_LOCK=/var/lock/bitcoin-live.install.lock
+readonly BACKUP_LOCK=/var/lock/bitcoin-live.backup.lock
+readonly OFFHOST_BACKUP_LOCK=/var/lock/bitcoin-live.offhost-backup.lock
+readonly ACTIONS_LOCK=/var/lock/bitcoin-live.actions-deploy.lock
+readonly BOT_USER=bitcoinlive
+readonly MONITOR_USER=bitcoinlivemon
+readonly ACTIONS_RUNNER_USER=ghabtclive
+readonly SYSTEMD_PREFIX=bitcoin-live
+readonly EXPECTED_MONITOR_PORT=8093
+readonly OCI_OBJECT_PREFIX=bitcoin-live
+readonly GITHUB_RUNNER_LABEL=oracle-bitcoin-live
+readonly SUDOERS_FILE=/etc/sudoers.d/bitcoin-live-actions
