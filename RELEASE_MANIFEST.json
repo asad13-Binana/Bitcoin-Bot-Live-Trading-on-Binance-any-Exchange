@@ -45,8 +45,8 @@
       "size": 2387
     },
     "BITCOIN_BOT_SERVICES_FUNCTIONS_AND_TELEGRAM_GUIDE.txt": {
-      "sha256": "41a4c568d4976279e80f6e08faf9817c4e3c8397e03844321403bb9be3cf99e9",
-      "size": 126976
+      "sha256": "ce9f7c34aa5aae20c1f2d9a171a826937dc33896e1dcb98808635e2d7912e01b",
+      "size": 128151
     },
     "BOT_SIMPLE_DESCRIPTION.txt": {
       "sha256": "ccc73189de6aed1eb09ce917daac4be9202b0ab8f09627b220da37a4d8df5e5c",
@@ -121,8 +121,8 @@
       "size": 18713
     },
     "VALIDATION_STATUS.json": {
-      "sha256": "400ab28ad923a6ba38adf99e7f26eeac63f22753eca76d45af9aa889d1464578",
-      "size": 13950
+      "sha256": "a6746d56951a1fa1cc781bbbeb1547b91593ffdd0814d1c54e36cf5255d6ffa1",
+      "size": 14535
     },
     "deploy/api_preflight.sh": {
       "sha256": "d1ab42fa9e423bf2e1e0b90ba9d93a7bee16bba38e94e6ab11bc64514d8ece6a",
@@ -249,8 +249,8 @@
       "size": 50431
     },
     "docs/audit/FUNCTION_PARITY_MATRIX.csv": {
-      "sha256": "18ebdade8b72eefc66015271d54009fc09b2622edc9b34a376f3c518abe09d4b",
-      "size": 125983
+      "sha256": "7118466ca2256830eca41fc8704b97a8369fd24484a54b0237594cd137bc2fbd",
+      "size": 127382
     },
     "docs/audit/ISSUE_LEDGER.csv": {
       "sha256": "88bc6dc05728e5fbc1125bd2b8b8a0590008a3615308507419cffe1a9eca5440",
@@ -633,16 +633,16 @@
       "size": 0
     },
     "services/execution_sidecar/bitcoin_adapter.py": {
-      "sha256": "8bbabe01aef6fbb2d802aaffc65b186fc39ea628ab7bc37ee3f038a0a3cc918d",
-      "size": 91968
+      "sha256": "9db19b0b11b220507695477a79b3970fe1841d303fa7b60a79576e068ee9fb4a",
+      "size": 92092
     },
     "services/execution_sidecar/client_ids.py": {
       "sha256": "0784d62bddf18180d0412c846087ffbdea7c4b17e1f762d32117eee2aa893802",
       "size": 1320
     },
     "services/execution_sidecar/filters.py": {
-      "sha256": "f773434d4fa61fd9756d1ba298d9f44189268e1f5e6f2576758bd1065ce75971",
-      "size": 24443
+      "sha256": "dacea7fe8d2948054e21bb82051dcd7b29da8fc24e89d26ffeeb709a141d3406",
+      "size": 36921
     },
     "services/execution_sidecar/live_evidence.py": {
       "sha256": "bf438e084d99a83eb69908711629e0f8545ff0791b46187fec741a52c3c32d06",
@@ -781,8 +781,8 @@
       "size": 4724
     },
     "tests/test_binance_official_sources.py": {
-      "sha256": "1a8ed22380b24f5bc5baad1e1f12dfd2f29e6b39fcd8d8f5f82d44540c9d0e1c",
-      "size": 11721
+      "sha256": "8319d4eeb4eaea0233d6c76dcc2093d11c604a541acadb19b42c547f614f1615",
+      "size": 19278
     },
     "tests/test_control_and_flow.py": {
       "sha256": "78a201406507a70e8a34971a60bc14cc8795c9c1292099206d2d1e43de8866a4",
@@ -797,8 +797,8 @@
       "size": 14695
     },
     "tests/test_execution_safety.py": {
-      "sha256": "2534b7d05f9c7c5ac4ec266478fd16bf698eb573f89389e4ab8ca0cb0e5f17fc",
-      "size": 59176
+      "sha256": "57361689c8672b8067e9d8a78d64234dd34cb7d4a716c7fd4861e811d1f034ab",
+      "size": 60091
     },
     "tests/test_external_market_context.py": {
       "sha256": "93218ec6c4f6f1e1aa28f76ae3ee3b0bc4ce17570c98f66a0ea06571d8623d87",
