@@ -41,7 +41,7 @@ Create the instance with an SSH public key. Never upload the private key.
 For a public-IP model, permit inbound TCP 22 only from the narrowest source
 CIDR that is operationally possible. Do not add ingress rules for Freqtrade,
 Telegram, monitoring, databases or bot services. The Bitcoin monitoring API
-binds only to `127.0.0.1:8091`; it is not an OCI public service.
+binds only to `127.0.0.1:8093`; it is not an OCI public service.
 
 Check both the instance Network Security Group and subnet Security List. A host
 firewall is defence in depth, not a replacement for OCI rules. Docker's
@@ -156,10 +156,10 @@ Do not use an unreviewed major-version upgrade.
 Edit the root-only file:
 
 ```bash
-sudoedit /etc/bitcoin-bot/.env
-sudo chown root:root /etc/bitcoin-bot/.env
-sudo chmod 0600 /etc/bitcoin-bot/.env
-sudo stat -c '%U:%G %a %n' /etc/bitcoin-bot/.env
+sudoedit /etc/bitcoin-live/.env
+sudo chown root:root /etc/bitcoin-live/.env
+sudo chmod 0600 /etc/bitcoin-live/.env
+sudo stat -c '%U:%G %a %n' /etc/bitcoin-live/.env
 ```
 
 Copy keys from `.env.example`, never the example placeholder secrets. Required
@@ -180,7 +180,7 @@ AUTO_CONFIRM=false
 BINANCE_API_KEY=
 BINANCE_API_SECRET=
 MONITOR_BIND_HOST=127.0.0.1
-MONITOR_PORT=8091
+MONITOR_PORT=8093
 ```
 
 Create independent random service-bus and Freqtrade secrets. Add the Telegram
@@ -198,35 +198,42 @@ With the optional GitHub runner disabled, use the isolated staging identity
 without granting it Docker or secret access:
 
 ```bash
-sudo install -m 0600 -o gha-runner -g gha-runner \
+sudo install -m 0600 -o ghabtclive -g ghabtclive \
   bitcoin-bot-COMMIT.tar.gz \
-  /var/lib/bitcoin-bot/incoming/bitcoin-bot-release.tar.gz
-sudo install -m 0600 -o gha-runner -g gha-runner \
+  /var/lib/bitcoin-live/incoming/bitcoin-bot-release.tar.gz
+sudo install -m 0600 -o ghabtclive -g ghabtclive \
   bitcoin-bot-COMMIT.tar.gz.sha256 \
-  /var/lib/bitcoin-bot/incoming/bitcoin-bot-release.tar.gz.sha256
-sudoedit /etc/bitcoin-bot/approved-artifact.sha256
-sudo chown root:root /etc/bitcoin-bot/approved-artifact.sha256
-sudo chmod 0600 /etc/bitcoin-bot/approved-artifact.sha256
+  /var/lib/bitcoin-live/incoming/bitcoin-bot-release.tar.gz.sha256
+sudoedit /etc/bitcoin-live/approved-artifact.sha256
+sudo chown root:root /etc/bitcoin-live/approved-artifact.sha256
+sudo chmod 0600 /etc/bitcoin-live/approved-artifact.sha256
 ```
 
 The approval file contains exactly one independently verified 64-character
 tarball SHA-256. Then run:
 
 ```bash
-sudo /usr/local/sbin/bitcoin-bot-deploy preflight
-sudo /usr/local/sbin/bitcoin-bot-deploy simulation
-sudo /usr/local/sbin/bitcoin-bot-deploy verify
+sudo /usr/local/sbin/bitcoin-live-deploy preflight
+sudo /usr/local/sbin/bitcoin-live-deploy simulation
+sudo /usr/local/sbin/bitcoin-live-deploy verify
 ```
 
 Approval is consumed before installation and cannot be silently replayed.
+
+The execution sidecar has five bounded automatic retries. If reconciliation
+continues to fail, it remains stopped and entries remain fail-closed instead of
+creating an unlimited restart storm. Telegram remains available after Freqtrade
+is healthy so the owner can inspect `/status`, `/audit`, `/deploy` and `/errors`.
+Do not repeatedly restart the sidecar or clear a risk pause until the account,
+orders, order lists, intents and durable state reconcile.
 
 ## 8. Validate the Oracle host
 
 Run the redacted diagnostic:
 
 ```bash
-sudo /usr/local/sbin/bitcoin-bot-oracle-validate \
-  | sudo tee /var/log/bitcoin-bot/oracle-validation.txt
+sudo /usr/local/sbin/bitcoin-live-oracle-validate \
+  | sudo tee /var/log/bitcoin-live/oracle-validation.txt
 ```
 
 It reports identity, OS, architecture, kernel, CPU, RAM, swap, disk, Docker,
@@ -240,8 +247,8 @@ does not print credentials.
 Confirm monitoring is loopback-only:
 
 ```bash
-sudo ss -ltnp | grep ':8091'
-curl --fail http://127.0.0.1:8091/api/v1/health
+sudo ss -ltnp | grep ':8093'
+curl --fail http://127.0.0.1:8093/api/v1/health
 ```
 
 The authenticated monitoring check requires the bearer token and should be run
@@ -252,9 +259,9 @@ without recording that token in shell history.
 Create a root-only backup:
 
 ```bash
-sudo /usr/local/libexec/bitcoin-bot/backup_state.sh
-sudo /usr/local/libexec/bitcoin-bot/verify_backup.sh \
-  /var/backups/bitcoin-bot/YYYYMMDDTHHMMSSZ
+sudo /usr/local/libexec/bitcoin-live/backup_state.sh
+sudo /usr/local/libexec/bitcoin-live/verify_backup.sh \
+  /var/backups/bitcoin-live/YYYYMMDDTHHMMSSZ
 ```
 
 The backup uses SQLite's online backup API and `PRAGMA quick_check`, captures
@@ -314,8 +321,8 @@ to hide poor time synchronisation; keep the existing 5,000 ms policy or less.
 - Do not set `EXECUTION_MODE=live` in this package.
 - Do not use a production Binance execution endpoint.
 - Do not enable withdrawals on any API key.
-- Do not expose port 8091, Freqtrade, databases or Docker publicly.
-- Do not add the deploy, runner or botmon account to the Docker group.
+- Do not expose port 8093, Freqtrade, databases or Docker publicly.
+- Do not add the deploy, runner or bitcoinlivemon account to the Docker group.
 - Do not deploy a working tree or an artifact whose digest is not independently approved.
 - Do not describe the strategy as profitable or real-money ready.
 
