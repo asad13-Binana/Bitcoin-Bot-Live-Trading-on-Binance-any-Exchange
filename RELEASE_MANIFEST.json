@@ -121,8 +121,8 @@
       "size": 18713
     },
     "VALIDATION_STATUS.json": {
-      "sha256": "df91d513e5d21f9d1974cf5ff0bb9bb93153b16838f51755240c6268528e6793",
-      "size": 15834
+      "sha256": "2ef406323ddbaa8b15cea71cbadf79f453c0b23de9ee4f949c1abec42d2e1f70",
+      "size": 16387
     },
     "deploy/api_preflight.sh": {
       "sha256": "d1ab42fa9e423bf2e1e0b90ba9d93a7bee16bba38e94e6ab11bc64514d8ece6a",
@@ -204,6 +204,10 @@
       "sha256": "3decf7385dafdb45631142a31c9e0725c43dee71ef70408ec241a4f6f23ce147",
       "size": 1965
     },
+    "docs/AWS_POST_DEPLOYMENT_REPAIR_2026-08-30.md": {
+      "sha256": "2188fb2a51d5ca1f4a7ab5e38eeea5f84c59d04b7f8d97e0edf3ea142209cfae",
+      "size": 8179
+    },
     "docs/AWS_TESTNET_INCIDENT_REVIEW_2026-08-30.md": {
       "sha256": "366363737d6c110a2f6c69b1081d51c63b6188381609bf70a6bd56314ec52bb7",
       "size": 1853
@@ -253,8 +257,8 @@
       "size": 1680
     },
     "docs/audit/FILE_REVIEW_LEDGER.csv": {
-      "sha256": "c56672472aab92479378dc5e2e4048266149cb3c9cc9b45a90f475892e04c0e8",
-      "size": 52021
+      "sha256": "1294cf667c0fb768a6a0639076cb2ac9c4fa6053d6b073483fcbd99d4188693f",
+      "size": 53481
     },
     "docs/audit/FUNCTION_PARITY_MATRIX.csv": {
       "sha256": "66eea11c6c5b84963635eb2a9c87cd3dd707d133b13e93f9ef553ffe492afbcc",
@@ -321,16 +325,20 @@
       "size": 210
     },
     "freqtrade/scripts/verify.sh": {
-      "sha256": "10e95956805252a7428e260d25247547bf89f73a4ee6cbea5c3bd133e02a5fb6",
-      "size": 906
+      "sha256": "ce3a7e4f7231494fc12aadc2dc8e9d00e6fd880f42529164c55a6e5b44b9e41f",
+      "size": 1902
     },
     "freqtrade/tests/audit_probes.py": {
       "sha256": "b966ee77045e61aafd249a07176b5c3caa692a08ea56ac4271d172f3b52edc75",
       "size": 5967
     },
+    "freqtrade/tests/remote_pairlist_probe.py": {
+      "sha256": "100ea0a5d8971837dbd47649247a97e8f88b87d8e08e4ff8a9aa44ed047c3825",
+      "size": 5728
+    },
     "freqtrade/user_data/config.json": {
-      "sha256": "6c5c0d04a1761db6d40d564e215eb744e1a1dc8a95d3928fbdb117e7ece2a55e",
-      "size": 1869
+      "sha256": "d91d7532fffc7bfeb4cd777c8f2094feec1c2578ad8c446ef1ef2f40c496e448",
+      "size": 1870
     },
     "freqtrade/user_data/strategies/IctSmcStrategy.py": {
       "sha256": "023d5f9a09c3a9057986ec1a79fe74cc987b79dd52c3453683d09d023f08e340",
@@ -533,8 +541,8 @@
       "size": 9550
     },
     "scripts/healthcheck.sh": {
-      "sha256": "1f11b20e1314526cd2fa78160fbd6e67e882e7f03c341e4d526d42d8cd6278d6",
-      "size": 2149
+      "sha256": "535fb69d4325bae258c508194b8d7021b57a8e1bdfd1964cf8ca82906a4df770",
+      "size": 2551
     },
     "scripts/scan_git_history_secrets.py": {
       "sha256": "488b0aa559c455d02da45129b529919b5b610a15fced0d1f31fec0119886dd6f",
@@ -823,6 +831,10 @@
     "tests/test_four_bot_cohosting.py": {
       "sha256": "ba30e2013664bd521f74d05de46ba15fdc4c1d6e8a9af77c8e92f2eb232331cb",
       "size": 4198
+    },
+    "tests/test_freqtrade_deployment_regressions.py": {
+      "sha256": "6c27023aa508aa7bad3a548047edcb8b6df9b16e96d32c6372622b7354e2da33",
+      "size": 5930
     },
     "tests/test_git_history_secret_scan.py": {
       "sha256": "abf60008986801328c79bdb60dff1e1ce2882e8c4d96df475a55314be71319c5",
