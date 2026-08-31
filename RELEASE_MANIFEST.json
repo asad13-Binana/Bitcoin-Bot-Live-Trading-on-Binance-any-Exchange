@@ -25,8 +25,8 @@
       "size": 2046
     },
     ".github/workflows/ci.yml": {
-      "sha256": "b9f8a377819c30af5902420397b415972e8b85f52b497b95fb5ccfa19428d205",
-      "size": 14293
+      "sha256": "6fb4c7d01f56286821cbc7194cfca468351eb1661ae7ec7e454553b21f0a2940",
+      "size": 14529
     },
     ".gitignore": {
       "sha256": "25c70bd7f6a6d7a75a89f3abcf8e59fe51c22789af22dd598ba7e8fc1ee448b8",
@@ -45,8 +45,8 @@
       "size": 2387
     },
     "BITCOIN_BOT_SERVICES_FUNCTIONS_AND_TELEGRAM_GUIDE.txt": {
-      "sha256": "ccf058c7d69db461a3256c3611f1d0b622f6a5c12eb0fdd06813c63c36e6bc61",
-      "size": 132200
+      "sha256": "438caf1d5cc7823c275a600bb6bd1f3c764b945130f6308c0809660df2fcb5a6",
+      "size": 133546
     },
     "BOT_SIMPLE_DESCRIPTION.txt": {
       "sha256": "9dfd21c5b98f9482804f9685a1606c3141f519b3980d9ca6848e29c2229b8b0b",
@@ -125,8 +125,8 @@
       "size": 19418
     },
     "VALIDATION_STATUS.json": {
-      "sha256": "99fe50f6ffec9dac435e5063c9ca3188a16fb9e3cda16c7112f032b465acbf55",
-      "size": 17188
+      "sha256": "36fdab4dfa2a87e1ddcddb2d60720e5485b95b406c79482046c6106438bb966d",
+      "size": 17773
     },
     "deploy/api_preflight.sh": {
       "sha256": "d1ab42fa9e423bf2e1e0b90ba9d93a7bee16bba38e94e6ab11bc64514d8ece6a",
@@ -165,12 +165,16 @@
       "size": 9709
     },
     "deploy/oracle_setup.sh": {
-      "sha256": "86870b6b90517fdd3caf0180e757e6e9cd493f4631cbcd02cec5884765eb0797",
-      "size": 20471
+      "sha256": "20d278fea465c878726ab0c646ed5d69842992125142bfc3efc6f82f38b4aa1a",
+      "size": 20804
     },
     "deploy/oracle_validate.sh": {
       "sha256": "7c4b8006b9530ee62bcaa005aad20c9d87696e7a03c59cacbb2ec5a5cd22fe21",
       "size": 7992
+    },
+    "deploy/ownership_tree.py": {
+      "sha256": "f9302cfefad224d046de8a1b918393af1825094628427b24d4f08575c9230c40",
+      "size": 7211
     },
     "deploy/prepare_runtime_locks.py": {
       "sha256": "0e3b87d1c0993f8cfa50af8944ae8ed2c8bfcc904a94667e12cfd6c92816e658",
@@ -241,8 +245,8 @@
       "size": 2284
     },
     "docs/GITHUB_ORACLE_DEPLOYMENT.md": {
-      "sha256": "2525f6e534b17257e00803a807ceae000c51acdb0bcee221123c6bc6ddc60082",
-      "size": 12535
+      "sha256": "f28bbdbc3f6db8eeeb6226e83e1b893805677d9ee57b0c97e15d8fad59359d26",
+      "size": 12540
     },
     "docs/GITHUB_RELEASE_AND_ROLLBACK_GUIDE.md": {
       "sha256": "e730b91f15397d148abbc8d3ec045b6736fddc011af9732140bdeb56884cc834",
@@ -261,8 +265,12 @@
       "size": 7301
     },
     "docs/ORACLE_SETUP_GUIDE.md": {
-      "sha256": "2fc7cafea35f79d1a42350b9dde34397b7cd44025a877deffcd8f538c770dc76",
-      "size": 12900
+      "sha256": "8e0e9a374cfa2b0e025c4340150996ab8faf935d63dd9f21f9caccd08fce8c44",
+      "size": 13017
+    },
+    "docs/OWNERSHIP_SETUP_REPAIR_2026-08-31.md": {
+      "sha256": "4b5511435e3e97e56fd513bb0f628147e3c33b174374c8e1cedc22859d02642b",
+      "size": 7547
     },
     "docs/SECURITY_AND_SECRETS_GUIDE.md": {
       "sha256": "4abea83a1440301470ce5d6fe30b31f2c89904324c3ac1e81b4725f3e6f70afb",
@@ -273,12 +281,12 @@
       "size": 1680
     },
     "docs/audit/FILE_REVIEW_LEDGER.csv": {
-      "sha256": "90059a95ba0da34da2faa3fd7cc783c03eb6d03f5506e0d8e667c2f25770a186",
-      "size": 55192
+      "sha256": "039d34af4f7e9ee0a1a3cdd6594291094d8aef03ed21b9f12f02e05e479be29e",
+      "size": 56068
     },
     "docs/audit/FUNCTION_PARITY_MATRIX.csv": {
-      "sha256": "741363d54db4ca2d13755914736e8e3d245f2654b17b10a939c0d1cb004c3dba",
-      "size": 131922
+      "sha256": "e35329eb44d08fc8cf037321bb4455d989ade269aded40a5b9cf6fdc4fd99fe8",
+      "size": 133391
     },
     "docs/audit/ISSUE_LEDGER.csv": {
       "sha256": "d66622971520dcdc647fad8b14d4c7dea6cea1e6a0b808afef1e1599df5894b4",
@@ -875,6 +883,10 @@
     "tests/test_oracle_hardening_2026_08_13.py": {
       "sha256": "2fbc34475f9664866b68c932d57113b3187daaa80ad14cc495d78cf803359dd9",
       "size": 8462
+    },
+    "tests/test_ownership_tree.py": {
+      "sha256": "c4cbaf2604ed7ed883db49b737322032f9a26826c706d35350ed3ae2f24fc62c",
+      "size": 10964
     },
     "tests/test_property_invariants.py": {
       "sha256": "b5d65ddab993c263c198d68edaa7abd00e99b60617db4135e482a57cfd47c3fe",
