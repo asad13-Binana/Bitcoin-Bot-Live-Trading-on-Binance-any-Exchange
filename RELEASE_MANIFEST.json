@@ -5,8 +5,8 @@
       "size": 295
     },
     ".env.example": {
-      "sha256": "f9be057fe417ea9a25fdaba82643ac76b885b7c267aaaf81980feb70082f9664",
-      "size": 5077
+      "sha256": "ed0fb931888c9b0e369fed8293cfc776ccbf09583e9b8315400c5ffd53e07470",
+      "size": 5268
     },
     ".git-commit": {
       "sha256": "e8c0557820faaaa942f1d921eb87aeee4f071d34b7805ff5288d6c9b1d98a1c7",
@@ -17,12 +17,12 @@
       "size": 1989
     },
     ".github/CODEOWNERS": {
-      "sha256": "5914a4dccb883c92dba336102bca587e9e1d5ccea8ea75b948a0ff39da371142",
-      "size": 1926
+      "sha256": "c61c8d194af9f69522ef1238e1af9ad1f31ef76653246d70f77837d9072376bd",
+      "size": 2012
     },
     ".github/CODEOWNERS.example": {
-      "sha256": "2cbfef77ed6866a3a0b0e8df0fc35fe0478afdc41fd3d6e69d1ead406e88d4a3",
-      "size": 2046
+      "sha256": "d7444bb88bf3b481419755504f1c91edb59155f30a5f6a540f128807e0da904b",
+      "size": 2139
     },
     ".github/workflows/ci.yml": {
       "sha256": "f080ddcdd9a84af2e2e93057a7cd4fad2becada43caefb705d169bb1c1ff3613",
@@ -37,7 +37,7 @@
       "size": 3833
     },
     "ARTIFACT_PROVENANCE.json": {
-      "sha256": "22180f655e792a45cc9b2fce364ab1e0258dd171623b9360927efce82bded0b7",
+      "sha256": "a705b050f24edff1e0bff866671d1b3b007eb1961a8d384dde3903275987e157",
       "size": 767
     },
     "AUDIT_AND_RELEASE_NOTES_2026-07-22.md": {
@@ -45,15 +45,15 @@
       "size": 2387
     },
     "BITCOIN_BOT_SERVICES_FUNCTIONS_AND_TELEGRAM_GUIDE.txt": {
-      "sha256": "b0504bfc1646ef78688145ae6a3e30f040b49e4ffb7ceec5bca9cf01aaee1982",
-      "size": 136021
+      "sha256": "1498a0b14fa95ad0145dac9a8fc65e6531c1fa1cd7545e443590cf01933a45a0",
+      "size": 143502
     },
     "BOT_SIMPLE_DESCRIPTION.txt": {
       "sha256": "9dfd21c5b98f9482804f9685a1606c3141f519b3980d9ca6848e29c2229b8b0b",
       "size": 1502
     },
     "Dockerfile.freqtrade": {
-      "sha256": "78521eb044b333bd755115f8c40617871b26017b654f419239b517d729d8178c",
+      "sha256": "67270cd1e30cbb0bf8481fb64762459dba47af30678f9a17996a72265c4c3f85",
       "size": 706
     },
     "Dockerfile.services": {
@@ -113,15 +113,15 @@
       "size": 4790
     },
     "README.md": {
-      "sha256": "38f1dc91bebbfa9553cbbfa38df6485a2fb0e2a3bf4f6cce8fb492e9f6e340bb",
-      "size": 8780
+      "sha256": "bd9529ddbae12e319dfaf8e9f5d6ed5b1112ef04a5771f6f7abbbb594d9f2f73",
+      "size": 9114
     },
     "RELEASE_MODE": {
       "sha256": "7a0c3ac0d35f7d3b985ef0e678fab3f36ef28c158cc62d095183e9589d084ae5",
       "size": 5
     },
     "SBOM.cyclonedx.json": {
-      "sha256": "327bd8a657447886581f62d903c4525b0a1568e0a7b4e1a72211964804e0a2df",
+      "sha256": "e6d030f5ac5bb80749e8170448285dea5d07700892cdd3313c2661a7350960db",
       "size": 19418
     },
     "VALIDATION_STATUS.json": {
@@ -153,20 +153,20 @@
       "size": 4322
     },
     "deploy/install_artifact.sh": {
-      "sha256": "2822c7f4cdfcaaed25483f821d8cbca1d2e90a6a21f14bb0553d613609a9c0ef",
-      "size": 58144
+      "sha256": "a1c005d4d2af5ff7841b162e49ef63d1c3080a35256bd3a364d1e8960aa73adb",
+      "size": 58182
     },
     "deploy/install_monitoring.sh": {
-      "sha256": "e9c980383cce664d5b95b82e07caef5b2ae2b9d79679571801b2c7b7d80a1ce9",
-      "size": 23905
+      "sha256": "5f77a9ce06cd31d683dea246ef0317b2a9f48765861afb7a40b990a3edb9c040",
+      "size": 23943
     },
     "deploy/instance_identity.sh": {
       "sha256": "48fd28a1f87c4981adade5fc0caccbe655db9c073c1d8660b467da49ffcac78e",
       "size": 1900
     },
     "deploy/lib/envfile.sh": {
-      "sha256": "b3d02bf17ebe9e8a24b2f1a3a21286534deeeaf7043568ae344ed91a9fb0f32f",
-      "size": 9709
+      "sha256": "bd0c732d2ece5455040713224b31cc5450c85fad417aa648161c2acc34647d32",
+      "size": 9747
     },
     "deploy/oracle_setup.sh": {
       "sha256": "20d278fea465c878726ab0c646ed5d69842992125142bfc3efc6f82f38b4aa1a",
@@ -217,8 +217,8 @@
       "size": 8809
     },
     "docker-compose.yml": {
-      "sha256": "ece552d9e9915e8be18cc8205fd82b219af4e6d2735a3b82e25c617eda4537e0",
-      "size": 16738
+      "sha256": "f96156e80d630d50f04e56b897ac6b54215c0a1ab4ed2e70d4a1916891f60274",
+      "size": 17289
     },
     "docs/API_READINESS_RUNBOOK.md": {
       "sha256": "3decf7385dafdb45631142a31c9e0725c43dee71ef70408ec241a4f6f23ce147",
@@ -231,6 +231,10 @@
     "docs/AWS_POST_DEPLOYMENT_REPAIR_2026-08-30.md": {
       "sha256": "2188fb2a51d5ca1f4a7ab5e38eeea5f84c59d04b7f8d97e0edf3ea142209cfae",
       "size": 8179
+    },
+    "docs/AWS_RUNTIME_REPAIR_20260907.md": {
+      "sha256": "15a5d44695b5115f02ebaacd28804c346aa176985277f8f657b55dcbba0bb4e1",
+      "size": 6807
     },
     "docs/AWS_TESTNET_INCIDENT_REVIEW_2026-08-30.md": {
       "sha256": "366363737d6c110a2f6c69b1081d51c63b6188381609bf70a6bd56314ec52bb7",
@@ -289,12 +293,12 @@
       "size": 1680
     },
     "docs/audit/FILE_REVIEW_LEDGER.csv": {
-      "sha256": "1bb3256373369b04a485a27075e1a56c318f7ca20d3f3fedeea95dfe81b8ddf7",
-      "size": 57684
+      "sha256": "545763f140d6a39cbec6d30d2fa94ad23d033ef756232fa0d1ccbb09690323f3",
+      "size": 58365
     },
     "docs/audit/FUNCTION_PARITY_MATRIX.csv": {
-      "sha256": "8378dc0bc227cdc67f5fb262837bad4b0f16b5386b74282d080d78961540f2a9",
-      "size": 136161
+      "sha256": "f4b0939eac2a79d0a547affd9439d393abc210fe388a807dcdd86f82306cf907",
+      "size": 145348
     },
     "docs/audit/ISSUE_LEDGER.csv": {
       "sha256": "d66622971520dcdc647fad8b14d4c7dea6cea1e6a0b808afef1e1599df5894b4",
@@ -329,7 +333,7 @@
       "size": 2339
     },
     "freqtrade/docker-compose.yml": {
-      "sha256": "3daf9d17a9942a75e73ad3cbceb13e406f4249484ad3967d5d3d1e1cb596d832",
+      "sha256": "e6a4706301ee1a7e7efbf94229ba146bc140db9b69a291f63c2cc6726e90ddf0",
       "size": 728
     },
     "freqtrade/scripts/backtest.sh": {
@@ -365,7 +369,7 @@
       "size": 5967
     },
     "freqtrade/tests/remote_pairlist_probe.py": {
-      "sha256": "100ea0a5d8971837dbd47649247a97e8f88b87d8e08e4ff8a9aa44ed047c3825",
+      "sha256": "fb46b3d6dd0dd607d13ad01534b834d3e2d815a36972e936231af5bb49da3aef",
       "size": 5728
     },
     "freqtrade/user_data/config.json": {
@@ -545,8 +549,8 @@
       "size": 12021
     },
     "scripts/api_readiness.py": {
-      "sha256": "b56ce092818bcbe05b6043efd62e5c85b2b3b4c788a8983b090acd61a3a7f9cc",
-      "size": 18480
+      "sha256": "e410563b9307776b559e2936ae8dc3c34005987e5dee84bfbfeebb5ef3d07dc5",
+      "size": 18569
     },
     "scripts/build_artifact_provenance.py": {
       "sha256": "b4d6b4158fdc7c4662736aa584d06f5a5516e89e614b99a051ca1a29ebf76673",
@@ -609,7 +613,7 @@
       "size": 18657
     },
     "scripts/verify_freqtrade_runtime.py": {
-      "sha256": "b751523b34a0bfcdc9ef225b0de571405adb361821c077c6b6765a39882d522b",
+      "sha256": "2049108532efe8fdd7e9303099801dc08daaad5a0d0984a835d475d69159213c",
       "size": 7685
     },
     "scripts/verify_live_evidence.py": {
@@ -693,8 +697,8 @@
       "size": 0
     },
     "services/execution_sidecar/bitcoin_adapter.py": {
-      "sha256": "9db19b0b11b220507695477a79b3970fe1841d303fa7b60a79576e068ee9fb4a",
-      "size": 92092
+      "sha256": "b26cc66df9d418f05b85ad4d4a2164a33b2a41187576b3f503b8faaa75a4c2c1",
+      "size": 102697
     },
     "services/execution_sidecar/client_ids.py": {
       "sha256": "0784d62bddf18180d0412c846087ffbdea7c4b17e1f762d32117eee2aa893802",
@@ -709,8 +713,8 @@
       "size": 18296
     },
     "services/execution_sidecar/main.py": {
-      "sha256": "92b074d8f6e4ddf4f4f3d69d08e88dc104a107aca2113542a4ec288a6ccb5f89",
-      "size": 31594
+      "sha256": "e87312f202322d45d34ebee14079ba9aa624c34989a935db05491a77c8560222",
+      "size": 32867
     },
     "services/execution_sidecar/order_manager.py": {
       "sha256": "9ca592ff71fbc967dbe1f576538f8dff77b7f084d755432080ff0d61b9917f50",
@@ -745,12 +749,12 @@
       "size": 9110
     },
     "services/execution_sidecar/state_store.py": {
-      "sha256": "7d893d5bc0f0d4337a2aa12c0c37f0116c57921ad3e97951b36e173a7ad1dc2d",
-      "size": 36089
+      "sha256": "063d4b577730cb16788ff708d0841f3fbbe823a680c723da449b2c4f867f26ba",
+      "size": 37067
     },
     "services/execution_sidecar/user_data_stream.py": {
-      "sha256": "b90d163c85ca61e1c6f2d014887b8512d54a2b39b56dae4ea7f1b438e4559d5b",
-      "size": 11089
+      "sha256": "303e2c48d5e748b2b6aba471e351bd7799979478d01315546aab73608aa7c4e3",
+      "size": 11680
     },
     "services/moneyflow/__init__.py": {
       "sha256": "9aebf779ce6d509a346590982ae296790006b1b8ea12d6287a27439774f1391b",
@@ -765,8 +769,8 @@
       "size": 1094
     },
     "services/moneyflow/external_clients.py": {
-      "sha256": "ce0f97d1fec4589106e5ff53a5e049267389c72b7342d1cb799ff5fe68ec9023",
-      "size": 10802
+      "sha256": "863e3d3b7b0649577ed7c45031b6070b26e46643ab8f744b506d2c4ae8116657",
+      "size": 10927
     },
     "services/moneyflow/external_context.py": {
       "sha256": "88d65c7d46ebf39a93ccba6bce41e45add3822c01671682b0daf8670c3631e02",
@@ -789,12 +793,16 @@
       "size": 297
     },
     "services/telegram_broker/bot.py": {
-      "sha256": "a6173dc69957ef2b9121b64e9af7a17a1950ebccce28428835db0a30195c4c1c",
-      "size": 46415
+      "sha256": "7dec267073e1502d05d0f87dc70ab59b523725f0fb1dc8b7c680c1626af8bb64",
+      "size": 47053
     },
     "services/telegram_broker/callbacks.py": {
       "sha256": "6455b165682b6e525ac90a5b06e6b722bc6b5abb323c5520f753f7513b3fd218",
       "size": 1530
+    },
+    "services/telegram_broker/stable_panel.py": {
+      "sha256": "4e7e04336bafdcf751bce441cc9b13a11a340e816d1a196950bee85166069f83",
+      "size": 55213
     },
     "shared/audit/.gitkeep": {
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -841,15 +849,19 @@
       "size": 13125
     },
     "tests/test_api_readiness.py": {
-      "sha256": "b5eb12077e2f7833ab50d794ea6bcf2bb2b39e397f9d4ba41f09bf1bb053c646",
-      "size": 5784
+      "sha256": "4cd94f786a95c9762c0508ed89a9b13807041580d73c3adcbd3474e81562e601",
+      "size": 6391
+    },
+    "tests/test_aws_runtime_repairs.py": {
+      "sha256": "c79803c4c877ded60e430ac93e08f7eb5071bc5a4fc8039c97dcb0a61ed84c47",
+      "size": 11138
     },
     "tests/test_binance_official_sources.py": {
       "sha256": "98a11d0f6624176b6731e7f149f3a782feedf54fbdd4e845f33514894acf6c7a",
       "size": 22912
     },
     "tests/test_control_and_flow.py": {
-      "sha256": "e78094636ed7d0eb6a1916eafee416882348b040b56fad216257a1dc83b3459c",
+      "sha256": "6fabe879e407a9937bb309c0d966c1b485ad8ee8c4a60037ecbfcce089005a58",
       "size": 51160
     },
     "tests/test_deployment_identity.py": {
@@ -865,8 +877,8 @@
       "size": 14822
     },
     "tests/test_execution_safety.py": {
-      "sha256": "57361689c8672b8067e9d8a78d64234dd34cb7d4a716c7fd4861e811d1f034ab",
-      "size": 60091
+      "sha256": "65041d77b93827257619ee83e63cdaf4f17b2ae6b9ef44bc9231099b6b01a65a",
+      "size": 60151
     },
     "tests/test_external_market_context.py": {
       "sha256": "e0b34c2738e632ca9276e854d6f67c55b077e280b3e60ac0c55cf2249275f253",
@@ -901,8 +913,8 @@
       "size": 10109
     },
     "tests/test_oracle_hardening_2026_08_13.py": {
-      "sha256": "2fbc34475f9664866b68c932d57113b3187daaa80ad14cc495d78cf803359dd9",
-      "size": 8462
+      "sha256": "e46c882e9b7ebdaf89ae62826a5ca749078e617b156d5ed158a6374f98adad54",
+      "size": 8411
     },
     "tests/test_ownership_tree.py": {
       "sha256": "c4cbaf2604ed7ed883db49b737322032f9a26826c706d35350ed3ae2f24fc62c",
