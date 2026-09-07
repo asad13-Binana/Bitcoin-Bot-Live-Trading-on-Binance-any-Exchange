@@ -45,7 +45,7 @@
       "size": 2387
     },
     "BITCOIN_BOT_SERVICES_FUNCTIONS_AND_TELEGRAM_GUIDE.txt": {
-      "sha256": "8b513429c85f9a152c345c43564caec34ebe2ce8047bda87f901b228d8da6c9f",
+      "sha256": "c76ea285f3470ca275190864cbdabda6e1fbbfd7545f2f61b8562a0193731807",
       "size": 143982
     },
     "BOT_SIMPLE_DESCRIPTION.txt": {
@@ -157,8 +157,8 @@
       "size": 58338
     },
     "deploy/install_monitoring.sh": {
-      "sha256": "5f77a9ce06cd31d683dea246ef0317b2a9f48765861afb7a40b990a3edb9c040",
-      "size": 23943
+      "sha256": "886477d79c8b876ddc6ce9013e6b974d7c6fd995175f0b6debc1baeec566ac44",
+      "size": 23973
     },
     "deploy/instance_identity.sh": {
       "sha256": "48fd28a1f87c4981adade5fc0caccbe655db9c073c1d8660b467da49ffcac78e",
@@ -297,7 +297,7 @@
       "size": 58460
     },
     "docs/audit/FUNCTION_PARITY_MATRIX.csv": {
-      "sha256": "f98977c74f4df686354593f2db1fd9b00dc08a1ce19ffa2603cea7f509913f19",
+      "sha256": "b1119c425f557eaebae1885521d78e84e69320115aed23fd056360f65072033e",
       "size": 145904
     },
     "docs/audit/ISSUE_LEDGER.csv": {
